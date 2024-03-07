@@ -30,7 +30,7 @@ function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, perm
             })
         end
         if name == nil then
-            QBCore.Functions.Notify('Invalid command!', 'error', 7500)
+            QBCore.Functions.Notify('Invalid command.', 'error', 7500)
         end
         callback(source, args, rawCommand)
     end, restricted)
