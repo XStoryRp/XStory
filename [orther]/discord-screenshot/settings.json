@@ -1,0 +1,11 @@
+{
+    "webhookUrl": "https://ptb.discord.com/api/webhooks/1172536013562847252/2PG5uDG2Wn7uLyMyI24eM_h9DzWjje2d7TezS7Q1xt4SJrszFiHVL6isoAPLWpFkGWdX",
+    "framework": "qbcore",
+    "commandName": "screenshot",
+    "commandPermission": "request.screenshot",
+    "hiddenIdentifiers": [],
+    "screenshotOptions": {
+        "encoding": "jpg",
+        "quality": 1.92
+    }
+}

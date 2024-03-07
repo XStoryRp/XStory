@@ -1,0 +1,8 @@
+{
+    "lasso":"Lasso",
+    "remove_lasso":"Remove Lasso",
+    "lasso_removed":"Lasso Removed",
+    "got_lassoed":"You got lassoed",
+    "broke_lasso":"You've broken out of the lasso",
+    "target_broke_lasso":"Target escaped"
+}

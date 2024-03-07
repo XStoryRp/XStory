@@ -1,0 +1,182 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+
+:root {
+    --primary-bg: #fff756a1;
+    --active-bg: #fff764af;
+    --font-color: rgb(243, 243, 243);
+}
+
+#drawtext-container {
+    display: none;
+    width: 200%;
+    height: 200%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: bold;
+    font-variant: small-caps;
+    letter-spacing: 0.7px;
+}
+.text {
+    position: absolute;
+    background: var(--primary-bg);
+    color: var(--font-color);
+    margin-top: 0.5rem;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 4.5px;
+    font-size: 16px;
+}
+
+
+.text.pressed {
+    background: var(--active-bg);
+}
+
+.top {
+    left: 45vw;
+    top: -100px;
+}
+.top.show {
+    transition: 0.2s;
+    top: 10px;
+    opacity: 1;
+}
+.top.hide {
+    transition: 0.2s;
+    top: -100px;
+    opacity: 0;
+}
+
+.right {
+    top: 50%;
+    right: -100px;
+}
+.right.show {
+    transition: 0.2s;
+    right: 10px;
+    opacity: 1;
+}
+.right.hide {
+    transition: 0.2s;
+    right: -100px;
+    opacity: 0;
+}
+
+.left {
+    top: 50%;
+    left: -100px;
+}
+
+.left.show {
+    transition: 0.2s;
+    left: 10px;
+    opacity: 1;
+}
+.left.hide {
+    transition: 0.2s;
+    left: -100px;
+    opacity: 0;
+} */
+@import"https://fonts.cdnfonts.com/css/montserrat";
+
+:root {
+    --primary-bg: #ecf321;
+    --active-bg: #e2da02;
+    --font-color: white;
+}
+
+#drawtext-container {
+    display: none;
+    width: 200%;
+    height: 200%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: Montserrat, sans-serif;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 0.7px;
+}
+.text {
+    position: absolute;
+    background: var(--primary-bg);
+    color: var(--font-color);
+    margin-top: 0.5rem;
+    padding-right: 12px;
+    padding-left: 12px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-radius: 4.5px;
+    font-size: 16px;
+}
+
+
+.text.pressed {
+    background: var(--active-bg);
+}
+
+.top {
+    left: 45vw;
+    top: -100px;
+}
+.top.show {
+    transition: 0.4s;
+    top: 10px;
+    opacity: 1;
+}
+.top.hide {
+    transition: 0.4s;
+    top: -100px;
+    opacity: 0;
+}
+
+.right {
+    top: 50%;
+    right: -100px;
+}
+.right.show {
+    transition: 0.4s;
+    right: 10px;
+    opacity: 1;
+}
+.right.hide {
+    transition: 0.4s;
+    right: -100px;
+    opacity: 0;
+}
+
+.left {
+    top: 50%;
+    left: -100px;
+}
+
+.left.show {
+    transition: 0.4s;
+    left: 10px;
+    opacity: 1;
+}
+.left.hide {
+    transition: 0.4s;
+    left: -100px;
+    opacity: 0;
+}
+
+.bottom {
+    bottom: 0.50%;
+    right: -100px;
+}
+
+.bottom.show {
+    transition: 0.4s;
+    bottom: 0.50%;
+    opacity: 1;
+}
+.bottom.hide {
+    transition: 0.4s;
+    bottom: -100px;
+    opacity: 0;
+}

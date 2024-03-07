@@ -1,0 +1,17 @@
+CreateThread(function()
+    SwitchTrainTrack(0, true)
+    SwitchTrainTrack(1, true)
+    SwitchTrainTrack(2, true)
+    SwitchTrainTrack(3, true)
+    SwitchTrainTrack(4, true)
+    SwitchTrainTrack(6, true)
+    SwitchTrainTrack(5, true)
+    SwitchTrainTrack(8, true)
+    SwitchTrainTrack(9, true)
+    SwitchTrainTrack(10, true)
+    SwitchTrainTrack(12, true)
+    SetTrainTrackSpawnFrequency(0, 5 * 60 * 1000) -- 5 minutes in milliseconds
+    SetRandomTrains(1)
+      -- turn off/On doors opening
+      SetTrainsForceDoorsOpen(true)
+  end)

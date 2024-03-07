@@ -1,0 +1,23 @@
+async function typeSentence(sentence, eleRef, delay = 15) {
+    const letters = sentence.split("");
+    let i = 0;
+    $(eleRef).empty();
+    while (i < letters.length) {
+        await waitForMs(delay);
+        $(eleRef).append(letters[i]);
+        i++;
+    }
+    return;
+}
+
+function waitForMs(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+// function repeatTypeSentence() {
+//     typeSentence("Loading...", "#sentence");
+// }
+
+// setInterval(repeatTypeSentence, 15000);
+setInterval(15000);
+// repeatTypeSentence();
