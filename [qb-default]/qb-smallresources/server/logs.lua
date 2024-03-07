@@ -97,9 +97,9 @@ RegisterNetEvent('qb-log:server:CreateLog', function(name, title, color, message
 
     if #logQueue[name] >= 10 then
         if tag then
-            postData = {username = 'Logs', content = '@everyone', embeds = {}}
+            postData = {username = 'XStory Logger', content = '@everyone', embeds = {}}
         else
-            postData = {username = 'Logs', embeds = {}}
+            postData = {username = 'XStory Logger', embeds = {}}
         end
         for i = 1, #logQueue[name] do postData.embeds[#postData.embeds + 1] = logQueue[name][i].data[1] end
         PerformHttpRequest(logQueue[name][1].webhook, function() end, 'POST', json.encode(postData), { ['Content-Type'] = 'application/json' })
@@ -120,7 +120,7 @@ Citizen.CreateThread(function()
             timer = 0
             for name, queue in pairs(logQueue) do
                 if #queue > 0 then
-                    local postData = {username = 'S⭐ Logs', embeds = {}}
+                    local postData = {username = 'XStory Logger', embeds = {}}
                     for i = 1, #queue do
                         postData.embeds[#postData.embeds + 1] = queue[i].data[1]
                     end
