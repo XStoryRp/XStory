@@ -84,7 +84,7 @@ end)
 
 AddEventHandler('gameEventTriggered', function(event, args)
     if event ~= "CEventNetworkEntityDamage" or GetEntityType(args[1]) ~= 1 or NetworkGetPlayerIndexFromPed(args[1]) ~= PlayerId() then return end
-    if not IsEntityDead(PlayerPedId()) then return end
+    -- if not IsEntityDead(PlayerPedId()) then return end
     OnPlayerDeath()
 end)
 
@@ -98,7 +98,7 @@ CreateThread(function()
                     local entity = NetToObj(v.net_id)
                     local coords = GetEntityCoords(entity)
                     local dist = #(GetEntityCoords(ped) - coords)
-                    if dist < 3.0 then 
+                    if dist < 5.0 then 
                         wait = 0
                         if dist < 1.25 and not ShowInteractText(_L("pickup_weapon")) and IsControlJustPressed(1, 51) then 
                             ClearPedTasksImmediately(ped)

@@ -21,8 +21,7 @@ function ShowInteractText(text)
     interactTick = timer
     if interactText == nil or interactText ~= text then 
         interactText = text
-        -- lib.showTextUI(text)
-        exports['qb-core']:DrawText(text, 'bottom')
+        lib.showTextUI(text)
     end
     if interactCheck then return end
     interactCheck = true
@@ -31,8 +30,7 @@ function ShowInteractText(text)
         local timer = GetGameTimer()
         interactCheck = false
         if timer ~= interactTick then 
-            -- lib.hideTextUI()
-            exports['qb-core']:HideText()
+            lib.hideTextUI()
             interactText = nil
             interactTick = 0
         end

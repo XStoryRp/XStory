@@ -2,10 +2,10 @@ fx_version 'cerulean'
 lua54 'yes'
 game 'gta5'
 
-name         'pickle_weaponthrowing'
+name         'xstory_weaponthrowing'
 version      '1.1.1'
 description  'A multi-framework weapon throwing script.'
-author       'Pickle Mods'
+author       ''
 
 shared_scripts {
     '@ox_lib/init.lua',

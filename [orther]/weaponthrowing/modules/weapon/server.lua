@@ -6,7 +6,7 @@ RegisterNetEvent("pickle_weaponthrowing:throwWeapon", function(data)
     if count < 1 then return end
     local weaponID = nil
     repeat
-        weaponID = os.time() .. "_" .. math.random(1000, 9999)
+        weaponID = os.time() .. " - " .. math.random(1000, 9999)
     until not ThrownWeapons[weaponID] 
     ThrownWeapons[weaponID] = CreateWeaponData(source, data, weaponData)
     RemoveWeapon(source, ThrownWeapons[weaponID])
