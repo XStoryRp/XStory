@@ -44,6 +44,24 @@ CustomDP.Emotes = {
             EmoteMoving = true,
         }
     },
+    ["lightsaber1"] = {
+        "tflightsaber1@animation",
+        "tflightsaber1_clip",
+        "Lightsaber",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = true,
+        }
+    },
+    ["lightsaber2"] = {
+        "tflightsaber2@animation",
+        "tflightsaber2_clip",
+        "Lightsaber 2",
+        AnimationOptions = {
+            EmoteLoop = false,
+            EmoteMoving = true,
+        }
+    },
 }
 CustomDP.PropEmotes = {}
 
