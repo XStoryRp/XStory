@@ -189,28 +189,33 @@ Config.CarExtras = { -- Extra options to be enabled / disabled
 Config.AuthorizedVehicles = {
     -- Garage 1 vehicles (LSPD)
     [1] = {
-        ["police"] = {label = "Police Car 1", ranks = {1,2}, livery = 1, price = nil},
-        ["police2"] = {label = "Police Car 2", ranks = {1,2}, livery = 1, price = nil},
-        ["police3"] = {label = "Police Car 3", ranks = {3}, livery = 1, price = nil},
-        ["police4"] = {label = "Police Car 4", ranks = {3}, livery = 1, price = nil},
-        ["policeb"] = {label = "Police Car 5", ranks = {3,4}, livery = 1, price = nil},
-        ["fbi"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = 15},
-        ["fbi2"] = {label = "Unmarked FBI2", ranks = {3,4}, livery = 1, price = nil},
-        ["dnscout"] = {label = "Unmarked Police", {5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil}
+        ["police"] = {label = "Police Car 1", ranks = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["police2"] = {label = "Police Car 2", ranks = {1,2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["police3"] = {label = "Police Car 3", ranks = {3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["police4"] = {label = "Police Car 4", ranks = {3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["policeb"] = {label = "Police Car 5", ranks = {3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["fbi"] = {label = "Unmarked FBI", ranks = {4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = 15},
+        ["fbi2"] = {label = "Unmarked FBI2", ranks = {4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["dnscout"] = {label = "Unmarked Police", ranks = {5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["nkscout"] = {label = "Police Car 6", ranks = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1 , price = nil},
+        ["nkcruiser"] = {label = "Crusier Police 2024", ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["nktorrence"] = {label = "Torrence Police 2024", ranks = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
     },
     -- Garage 2 vehicles (BCSO)
     [2] = {
-        ["sheriff"] = {label = "Sheriff Car 1", ranks = {1,2}, livery = 1, price = nil},
-        ["sheriff2"] = {label = "Sheriff Car 2", ranks = {2,3,4}, livery = 1, price = nil},
-        ["fbi"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = nil},
-        ["fbi2"] = {label = "Unmarked FBI2", ranks = {3,4}, livery = 1, price = nil},
+        ["sheriff"] = {label = "Sheriff Car 1", ranks = {1,2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["sheriff2"] = {label = "Sheriff Car 2", ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["fbi"] = {label = "Unmarked FBI", ranks = {5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["fbi2"] = {label = "Unmarked FBI2", ranks = {4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["nkcruiser"] = {label ="Unmarked Crusier", ranks = {4,5,6,7,8,9,10,11,12,13,14}, livery = 2, price = nil},
+        ["nktorrence"] = {label = "Unmarked Torrence", ranks = {4,5,6,7,8,9,10,11,12,13,14}, livery = 2, price = nil},
     },
     -- Garage 1 vehicles (Sandy)
     [3] = {
-        ["sheriff"] = {label = "Sheriff Car 1", ranks = {1,2}, livery = 1, price = nil},
-        ["sheriff2"] = {label = "Sheriff Car 2", ranks = {2,3,4}, livery = 1, price = nil},
-        ["fbi"] = {label = "Unmarked FBI", ranks = {3,4}, livery = 1, price = nil},
-        ["fbi2"] = {label = "Unmarked FBI2", ranks = {3,4}, livery = 1, price = nil},
+        ["sheriff"] = {label = "Sheriff Car 1", ranks = {1,2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["sheriff2"] = {label = "Sheriff Car 2", ranks = {2,3,4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["fbi"] = {label = "Unmarked FBI", ranks = {4,5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
+        ["fbi2"] = {label = "Unmarked FBI2", ranks = {5,6,7,8,9,10,11,12,13,14}, livery = 1, price = nil},
     },
 }
 
@@ -225,17 +230,17 @@ Config.AmmoLabels = {
 }
 
 Config.Radars = {
-    vector4(-623.44421386719, -823.08361816406, 25.25704574585, 145.0),
-    vector4(-652.44421386719, -854.08361816406, 24.55704574585, 325.0),
-    vector4(1623.0114746094, 1068.9924316406, 80.903594970703, 84.0),
-    vector4(-2604.8994140625, 2996.3391113281, 27.528566360474, 175.0),
-    vector4(2136.65234375, -591.81469726563, 94.272926330566, 318.0),
-    vector4(2117.5764160156, -558.51013183594, 95.683128356934, 158.0),
-    vector4(406.89505004883, -969.06286621094, 29.436267852783, 33.0),
-    vector4(657.315, -218.819, 44.06, 320.0),
-    vector4(2118.287, 6040.027, 50.928, 172.0),
-    vector4(-106.304, -1127.5530, 30.778, 230.0),
-    vector4(-823.3688, -1146.980, 8.0, 300.0),
+    -- vector4(-623.44421386719, -823.08361816406, 25.25704574585, 145.0),
+    -- vector4(-652.44421386719, -854.08361816406, 24.55704574585, 325.0),
+    -- vector4(1623.0114746094, 1068.9924316406, 80.903594970703, 84.0),
+    -- vector4(-2604.8994140625, 2996.3391113281, 27.528566360474, 175.0),
+    -- vector4(2136.65234375, -591.81469726563, 94.272926330566, 318.0),
+    -- vector4(2117.5764160156, -558.51013183594, 95.683128356934, 158.0),
+    -- vector4(406.89505004883, -969.06286621094, 29.436267852783, 33.0),
+    -- vector4(657.315, -218.819, 44.06, 320.0),
+    -- vector4(2118.287, 6040.027, 50.928, 172.0),
+    -- vector4(-106.304, -1127.5530, 30.778, 230.0),
+    -- vector4(-823.3688, -1146.980, 8.0, 300.0),
 }
 
 Config.CarItems = {
