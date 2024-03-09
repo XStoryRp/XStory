@@ -26427,7 +26427,7 @@ var rawQuery = /* @__PURE__ */ __name(async (type, invokingResource, query, para
   try {
     [query, parameters] = parseArguments(query, parameters);
   } catch (err) {
-    return logError(invokingResource, cb, err, isPromise, query, parameters);
+    return logError(invokingResource, cb, isPromise, err, query, parameters);
   }
   const connection = await getPoolConnection(connectionId);
   if (!connection)
@@ -26455,8 +26455,6 @@ var rawQuery = /* @__PURE__ */ __name(async (type, invokingResource, query, para
       }
     }
   } catch (err) {
-    if (!cb)
-      throw new Error(err.message || err);
     logError(invokingResource, cb, isPromise, err, query, parameters, true);
   } finally {
     connection.release();
@@ -26577,8 +26575,6 @@ var rawExecute = /* @__PURE__ */ __name(async (invokingResource, query, paramete
       }
     }
   } catch (err) {
-    if (!cb)
-      throw new Error(err.message || err);
     logError(invokingResource, cb, isPromise, err, query, parameters);
   } finally {
     connection.release();
@@ -26709,22 +26705,33 @@ var mysql_async_default = {
 };
 
 // src/database/startTransaction.ts
+async function runQuery(conn, sql, values) {
+  [sql, values] = parseArguments(sql, values);
+  try {
+    if (!conn)
+      throw new Error(`Connection used by transaction timed out after 30 seconds.`);
+    const [rows] = await conn.query(sql, values);
+    return rows;
+  } catch (err) {
+    throw new Error(`Query: ${sql}
+${JSON.stringify(values)}
+${err.message}`);
+  }
+}
+__name(runQuery, "runQuery");
 var startTransaction = /* @__PURE__ */ __name(async (invokingResource, queries, cb, isPromise) => {
-  const conn = await getPoolConnection();
+  let conn = await getPoolConnection();
+  let response = false;
   if (!conn)
     return;
-  let response = false;
+  setTimeout(() => response = null, 3e4);
   try {
-    const connectionId = conn.connection.connectionId;
     await conn.beginTransaction();
-    const commit = await queries({
-      query: (sql, values) => {
-        return rawQuery(null, invokingResource, sql, values, void 0, isPromise, connectionId);
-      },
-      execute: (sql, values) => {
-        return rawExecute(invokingResource, sql, values, void 0, isPromise, connectionId);
-      }
-    });
+    const commit = await queries(
+      (sql, values) => runQuery(response === null ? null : conn, sql, values)
+    );
+    if (response === null)
+      throw new Error(`Transaction has timed out after 30 seconds.`);
     response = commit === false ? false : true;
     response ? conn.commit() : conn.rollback();
   } catch (err) {
@@ -26732,6 +26739,7 @@ var startTransaction = /* @__PURE__ */ __name(async (invokingResource, queries, 
     logError(invokingResource, cb, isPromise, err);
   } finally {
     conn.release();
+    conn = null;
   }
   return cb ? cb(response) : response;
 }, "startTransaction");
