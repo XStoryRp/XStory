@@ -110,7 +110,7 @@ CreateThread(function()
                 num = 1
             },
         },
-        distance = 0.6
+        distance = 1.3
     })
 end)
 
