@@ -19,7 +19,7 @@ AddEventHandler('playerDropped', function(reason,cData)
     Player.Functions.Save()
     QBCore.Player_Buckets[Player.PlayerData.license] = nil
     QBCore.Players[src] = nil
-    TriggerEvent("qb-log:server:CreateLog", "joinleave", "Player Leave", "newred", "\nName: ".. GetPlayerName(src) .. " \nDiscord: "..(QBCore.Functions.GetIdentifier(src, 'discord'):gsub("", "") or "unknown").."  \nLicense: " ..(QBCore.Functions.GetIdentifier(src, 'license') or 'undefined') .." \nCitizenID: ".. citizenid .. "\nLeave-reason: "..reason.."\nLast-Location: ".. coords)
+    TriggerEvent("qb-log:server:CreateLog", "joinleave", "Player Leave", "newred", "\nName: ".. GetPlayerName(src) .. " \n"..(QBCore.Functions.GetIdentifier(src, 'discord'):gsub("", "") or "unknown").."  \n" ..(QBCore.Functions.GetIdentifier(src, 'license') or 'undefined') .." \nCitizenID: ".. citizenid .. "\nLeave-reason: "..reason.."\nLast-Location: ".. coords)
 end)
 
 -- Player Connecting
