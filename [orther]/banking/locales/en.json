@@ -71,7 +71,7 @@
     "withdraw_but": "Withdraw",
     "transfer_but": "Transfer",
     "open_bank": "Provide bank information",
-    "open_atm": "Opening ATM",
+    "open_atm": "Document collection",
     "canceled": "Canceled!",
     "ui_not_built": "Unable to load UI. Build Renewed-Banking or download the latest release.\n   ^https://github.com/Renewed-Scripts/Renewed-Banking/releases/latest/download/Renewed-Banking.zip^0\n    If you are using a custom build of the UI, please make sure the resource name is Renewed-Banking (you may not rename the resource).",
     "cmd_plyr_id": "Target player's server id",
