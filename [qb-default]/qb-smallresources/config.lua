@@ -343,6 +343,24 @@ Config.BlacklistedScenarios = {
         `ng_planes`,
     }
 }
+-- Manual gear
+Config.Debug = false -- toggle this on if you have issues, BEFORE asking for help
+Config.OxLib = false -- set to true if you use Oxlib, will otherwise default to QBcore. Make sure to double check fxmanifest if this is included or not
+
+Config.CwTuning = false -- Set to true if you use CW tuning and want to use that scripts gearbox swaps
+Config.UseOtherCheck = false -- set to true and add your code to client.lua. Search for "ADD YOUR CHECK HERE" in the file
+
+Config.ClutchTime = 400 -- value / clutchChangeRate As standard, GTA uses 900 for this value but I found that lower values works better. Higher means slower gearing.
+
+Config.Keys = {
+    gearUp = 'UP',
+    gearDown = 'DOWN'
+}
+
+Config.rhdCars = {
+    -- "carNameHere",
+}
+
 
 Config.BlacklistedVehs = {
     [`SHAMAL`] = false,
@@ -431,84 +449,6 @@ Config.BlacklistedPeds = {
     [`s_f_y_cop_01`] = false,
     [`s_m_y_hwaycop_01`] = false,
 }
-
---- AdminClothing
-Config.ClothingScript = "fivem-appearance" -- fivem-appearance or qb-clothing
-
-Config.ToggleGodMode = { -- this is to toggle whether or not u want to be invincible while in admin clothing
-    ['admin'] = true,
-    ['dev'] = true,
-}
-Config.Rank1 = 'god'
-Config.Rank2 = 'mod'
-Config.Rank3 = 'admin'
-Config.Rank4 = 'dev'
-Config.Rank5 = 'tadmin'
--- so for example only setting vest to true will only change the vest to your desired vest
-Config.ToggleClothingAdd = { -- so for example only setting vest to true will only change the vest to your desired vest
-    ['hat'] = false,
-    ['glasses'] = false,
-    ['ear'] = false,
-    ['watch'] = false,
-    ['bracelet'] = false,
-    --- props^
-    ['mask'] = false,
-    ['hair'] = false,
-    ['hands'] = false,
-    ['pants'] = false,
-    ['bag'] = false,
-    ['shoes'] = false,
-    ['accessory'] = false,
-    ['undershirt'] = true,
-    ['vest'] = true,
-    ['decals'] = false,
-    ['torso2'] = true,
-
-}
-
-Config.maleclothing = { -- this is where u choose what clothing item and texture u want 
-    ---- props
-    ['hat'] = 171, ['hattexture'] = 0, -- hats
-    ['glasses'] = 1, ['glassestexture'] = 1, -- glasses
-    ['ear'] = 1, ['eartexture'] = 1, -- ear
-    ['watch'] = 1, ['watchtexture'] = 1, -- watch
-    ['bracelet'] = 1, ['bracelettexture'] = 1, -- bracelet
-
-    ---- clothing
-    ['mask'] = 1, ['masktexture'] = 1, --mask
-    ['hair'] = 1, ['hairtexture'] = 1, --hair
-    ['hands'] = 1, ['handstexture'] = 1, -- arms/hands
-    ['pants'] = 1, ['pantstexture'] = 1, -- legs/pants
-    ['bag'] = 1, ['bagtexture'] = 1, -- bags and parachutes
-    ['shoes'] = 1,['shoestexture'] = 1, -- shoes
-    ['accessory'] = 1,['accesorystexture'] = 1, 
-    ['undershirt'] = 15, ['undershirttexture'] = 0, --undershirt
-    ['vest'] = 23, ['vesttexture'] = 0, --bodyarmor
-    ['decals'] = 1, ['decalstexture'] = 1, -- decals
-    ['torso2'] = 34, ['torso2texture'] = 0, --jackets
-}
-Config.femaleclothing = {
-    ---- props
-    ['hat'] = 3, ['hattexture'] = 1, -- hats
-    ['glasses'] = 1, ['glassestexture'] = 1, -- glasses
-    ['ear'] = 1, ['eartexture'] = 1, -- ear
-    ['watch'] = 1, ['watchtexture'] = 1, -- watch
-    ['bracelet'] = 1, ['bracelettexture'] = 1, -- bracelet
-
-    ---- clothing
-    ['mask'] = 1, ['masktexture'] = 1, --mask
-    ['hair'] = 1, ['hairtexture'] = 1, --hair
-    ['hands'] = 1, ['handstexture'] = 1, -- arms/hands
-    ['pants'] = 1, ['pantstexture'] = 1, -- legs/pants
-    ['bag'] = 1, ['bagtexture'] = 1, -- bags and parachutes
-    ['shoes'] = 1,['shoestexture'] = 1, -- shoes
-    ['accessory'] = 1,['accesorystexture'] = 1, 
-    ['undershirt'] = 1, ['undershirttexture'] = 1, --undershirt
-    ['vest'] = 1, ['vesttexture'] = 1, --bodyarmor
-    ['decals'] = 1, ['decalstexture'] = 1, -- decals
-    ['torso2'] = 1, ['torso2texture'] = 56, --jackets
-}
-
 
 Config.DisableVestDrawable = false -- Set to TRUE to disable the vest equipped when using heavy armor.
 Config.HolsterVariant = {130,122,3,6,8}
@@ -631,9 +571,6 @@ Language = {
     ['already_slashed'] = 'This tire has already been flattened!'
 }
 
-
-
-
 -- Motocross Tricks 
 
 Config.Eject                = true      -- This value determines whether the player will be ejected if they land while doing a trick or not (The default value is true)
@@ -652,7 +589,7 @@ Config.SimpleKey            = 76        -- Set the key used for the simple trick
 -- You can find those value here: https://docs.fivem.net/docs/game-references/controls/
 
 -- Bike pickup
-Config.Interaction = "" --qb/target (you dont need to put  target if you want to use target, can just leave blank)
+Config.Interaction = "target" --qb/target (you dont need to put  target if you want to use target, can just leave blank)
 Config.InteractKey = 'G'
 Config.DrawTextPosition = "left"
 Config.Bikes = {
@@ -712,26 +649,6 @@ Config.Bikes = {
         RotY = 170.0,
         RotZ = 90.0
     },
-}
-
--- GearBox
-
-
-Config.Debug = false -- toggle this on if you have issues, BEFORE asking for help
-Config.OxLib = false -- set to true if you use Oxlib, will otherwise default to QBcore. Make sure to double check fxmanifest if this is included or not
-
-Config.CwTuning = false -- Set to true if you use CW tuning and want to use that scripts gearbox swaps
-Config.UseOtherCheck = false -- set to true and add your code to client.lua. Search for "ADD YOUR CHECK HERE" in the file
-
-Config.ClutchTime = 400 -- value / clutchChangeRate As standard, GTA uses 900 for this value but I found that lower values works better. Higher means slower gearing.
-
-Config.Keys = {
-    gearUp = 'UP',
-    gearDown = 'DOWN'
-}
-
-Config.rhdCars = {
-    -- "carNameHere",
 }
 
 
