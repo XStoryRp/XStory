@@ -586,7 +586,8 @@ function EmoteCommandStart(source, args, raw)
             OnEmotePlay(RP.PropEmotes[name], name)
             return
         else
-            EmoteChatMessage("'" .. name .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+            -- EmoteChatMessage("'" .. name .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+            EmoteChatMessage(Config.Languages[lang]['notvalidemote'])
         end
     end
 end
@@ -775,7 +776,8 @@ function OnEmotePlay(EmoteName, name, textureVariation)
     end
 
     if not LoadAnim(ChosenDict) then
-        EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+        -- EmoteChatMessage("'" .. ename .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
+        EmoteChatMessage(Config.Languages[lang]['notvalidemote'])
         return
     end
 
