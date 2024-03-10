@@ -123,7 +123,7 @@ if Config.SqlKeybinding then
                     TriggerServerEvent("rp:ServerKeybindUpdate", key, emote)
                 else
                     -- EmoteChatMessage("'" .. emote .. "' " .. Config.Languages[lang]['notvalidemote'] .. "")
-                    QBCore.Functions.Notify(emote .. Config.Languages[lang]['notvalidemote'], 'error', 7500)
+                    QBCore.Functions.Notify(Config.Languages[lang]['notvalidemote'], 'error', 7500)
                 end
             else
                 -- EmoteChatMessage("'" .. key .. "' " .. Config.Languages[lang]['notvalidkey'])
