@@ -20,7 +20,7 @@ function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, perm
     local restricted = true -- Default to restricted for all commands
     if not permission then permission = 'user' end -- some commands don't pass permission level
     if permission == 'user' then restricted = false end -- allow all users to use command
-
+    
     RegisterCommand(name, function(source, args, rawCommand) -- Register command within fivem
         if argsrequired and #args < #arguments then
             return TriggerClientEvent('chat:addMessage', source, {
@@ -28,9 +28,6 @@ function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, perm
                 multiline = true,
                 args = {"System", Lang:t("error.missing_args2")}
             })
-        end
-        if name == nil then
-           return QBCore.Functions.Notify('Invalid command.', 'error', 7500)
         end
         callback(source, args, rawCommand)
     end, restricted)
