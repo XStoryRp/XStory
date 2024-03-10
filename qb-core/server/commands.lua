@@ -22,15 +22,19 @@ function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, perm
     if permission == 'user' then restricted = false end -- allow all users to use command
 
     RegisterCommand(name, function(source, args, rawCommand) -- Register command within fivem
+        if name < #name  then
+            return TriggerClientEvent('chat:addMessage', source, {
+                color = {255, 0, 0},
+                multiline = true,
+                args = {"",Lang:t("error.command_notexist", {command = name})}
+            })
+        end
         if argsrequired and #args < #arguments then
             return TriggerClientEvent('chat:addMessage', source, {
                 color = {255, 0, 0},
                 multiline = true,
                 args = {"System", Lang:t("error.missing_args2")}
             })
-        end
-        if name == nil then
-           return QBCore.Functions.Notify('Invalid command.', 'error', 7500)
         end
         callback(source, args, rawCommand)
     end, restricted)
