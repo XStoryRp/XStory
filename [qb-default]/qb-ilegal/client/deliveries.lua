@@ -241,10 +241,11 @@ function AwaitingInput()
 end
 
 function InitZones()
+    if next(Config.Dealers) == nil then return end
     if Config.UseTarget then
-        for k,v in pairs(Config.Dealers) do
-            exports["qb-target"]:AddBoxZone("dealer_"..k, vector3(v.coords.x, v.coords.y, v.coords.z), 1.5, 1.5, {
-                name = "dealer_"..k,
+        for k, v in pairs(Config.Dealers) do
+            exports["qb-target"]:AddBoxZone("dealer_" .. k, vector3(v.coords.x, v.coords.y, v.coords.z), 1.5, 1.5, {
+                name = "dealer_" .. k,
                 heading = v.heading,
                 minZ = v.coords.z - 1,
                 maxZ = v.coords.z + 1,
@@ -311,23 +312,24 @@ function InitZones()
         end
     else
         local dealerPoly = {}
-        for k,v in pairs(Config.Dealers) do
-            dealerPoly[#dealerPoly+1] = BoxZone:Create(vector3(v.coords.x, v.coords.y, v.coords.z), 1.5, 1.5, {
+        for k, v in pairs(Config.Dealers) do
+            dealerPoly[#dealerPoly + 1] = BoxZone:Create(vector3(v.coords.x, v.coords.y, v.coords.z), 1.5, 1.5, {
                 heading = -20,
-                name="dealer_"..k,
+                name = "dealer_" .. k,
                 debugPoly = false,
                 minZ = v.coords.z - 1,
                 maxZ = v.coords.z + 1,
             })
-            dealerCombo = ComboZone:Create(dealerPoly, {name = "dealerPoly"})
         end
+        dealerCombo = ComboZone:Create(dealerPoly, { name = "dealerPoly" })
+        if not dealerCombo then return end
         dealerCombo:onPlayerInOut(function(isPointInside)
             if isPointInside then
                 if not dealerIsHome then
-                    exports['qb-core']:DrawText(Lang:t("info.knock_button"),'left')
+                    exports['qb-core']:DrawText(Lang:t("info.knock_button"), 'left')
                     AwaitingInput()
                 elseif dealerIsHome then
-                    exports['qb-core']:DrawText(Lang:t("info.other_dealers_button"),'bottom')
+                    exports['qb-core']:DrawText(Lang:t("info.other_dealers_button"), 'left')
                     AwaitingInput()
                 end
             else
