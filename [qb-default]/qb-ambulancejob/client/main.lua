@@ -888,7 +888,7 @@ CreateThread(function()
         AddTextComponentString(station.label)
         EndTextCommandSetBlipName(blip)
     end
-    for _, firestations in pairs(Config.Locations["firestations"]) do
+    for __, firestations in pairs(Config.Locations["firestations"]) do
         local blip = AddBlipForCoord(firestations.coords.x, firestations.coords.y, firestations.coords.z)
         SetBlipSprite(blip, 648)
         SetBlipAsShortRange(blip, false)
