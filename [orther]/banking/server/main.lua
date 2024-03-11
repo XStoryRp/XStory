@@ -2,11 +2,11 @@ local cachedAccounts = {}
 local cachedPlayers = {}
 
 CreateThread(function()
-    Wait(500)
-    if not LoadResourceFile("Renewed-Banking", 'web/public/build/bundle.js') or GetCurrentResourceName() ~= "Renewed-Banking" then
-        error(locale("ui_not_built"))
-        return StopResource("Renewed-Banking")
-    end
+    Wait(300)
+    -- if not LoadResourceFile("Renewed-Banking", 'web/public/build/bundle.js') or GetCurrentResourceName() ~= "Renewed-Banking" then
+    --     error(locale("ui_not_built"))
+    --     return StopResource("Renewed-Banking")
+    -- end
     MySQL.query('SELECT * FROM bank_accounts_new', {}, function(accounts)
         for _,v in pairs (accounts) do
             local job = v.id
