@@ -66,7 +66,7 @@ local function wheelThread(bool)
             local distance = #(vehiclePos - spikePos)
             for a = 1, #tires do
                 local tirePos = GetWorldPositionOfEntityBone(vehicle, GetEntityBoneIndexByName(vehicle, tires[a].bone))
-                if #(tirePos - spikePos) < 1.8 then
+                if #(tirePos - spikePos) < 1.5 then
                     if not IsVehicleTyreBurst(vehicle, tires[a].index, true) or IsVehicleTyreBurst(vehicle, tires[a].index, false) then
                         SetVehicleTyreBurst(vehicle, tires[a].index, false, 1000.0)
                     end
