@@ -121,7 +121,7 @@ CreateThread(function()
                     local spikePos = GetEntityCoords(spike, false)
                     local distance = #(tirePos - spikePos)
 
-                    if distance < 1.8 then
+                    if distance < 1.5 then
                         if not IsVehicleTyreBurst(vehicle, tires[a].index, true) or IsVehicleTyreBurst(vehicle, tires[a].index, false) then
                             SetVehicleTyreBurst(vehicle, tires[a].index, 1, 1000.0)
                         end
