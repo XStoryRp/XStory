@@ -303,12 +303,12 @@ Config.Items = {
             authorizedJobGrades = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
         },
         [15] = {
-            name = "weapon_glock17",
+            name = "weapon_combatpistol",
             price = 0,
             amount = 1,
             info = {
                 attachments = {
-                    {component = "COMPONENT_AT_PI_FLSH", label = "Flashlight"},
+                    -- {component = "COMPONENT_AT_PI_FLSH", label = "Flashlight"},
                 }
             },
             type = "weapon",
