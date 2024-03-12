@@ -16,10 +16,10 @@ Config.Locations = {
         label = "Towing HQ",
         coords = vector4(471.39, -1311.03, 29.21, 114.5),
     },
-    ["vehicle"] = {
-        label = "Flatbed",
-        coords = vector4(489.65, -1331.82, 29.33, 306.5),
-    },
+    -- ["vehicle"] = {
+    --     label = "Flatbed",
+    --     coords = vector4(489.65, -1331.82, 29.33, 306.5),
+    -- },
     ["dropoff"] = {
         label = "Vehicle Drop Off Location",
         coords = vector3(491.00, -1314.69, 29.25)
@@ -66,8 +66,8 @@ Config.Locations = {
         [39] = {model = "washington", coords = vector3(-451.08666992188, -333.52026367188, 34.021533966064)},
         [40] = {model = "baller2", coords = vector3(322.36480712891, -1900.4990234375, 25.773607254028)},
     },
-    ["impound"] = {
-        label = "Impound",
-        coords = vector3(-237.48, -1175.57, 23.04),
-    },
+    -- ["impound"] = {
+    --     label = "Impound",
+    --     coords = vector3(-237.48, -1175.57, 23.04),
+    -- },
 }
