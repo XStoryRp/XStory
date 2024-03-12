@@ -164,7 +164,7 @@ Config.Locations = { -- Edit the various interaction points for players or creat
         [2] = {label = Lang:t('info.pb2_hospital'), coords = vector4(1839.95, 3674.19, 34.28, 28.4) },
         [3] = {label = Lang:t('info.pb3_hospital'), coords = vector4(-248.89, 6332.19, 32.43, 47.72) },
     },
-    ["fire-stations"] = {
+    ["firestations"] = {
         [1] = {label = Lang:t('info.fb_firestation'), coords = vector4(1199.43, -1467.54, 34.86, 205.04)},
         [2] = {label = Lang:t('info.fb_firestation'), coords = vector4(209.92, -1646.04, 29.8, 346.69)},
     }
