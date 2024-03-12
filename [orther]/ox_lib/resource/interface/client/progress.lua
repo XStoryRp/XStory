@@ -162,62 +162,17 @@ end
 
 ---@param data ProgressProps
 ---@return boolean?
--- function lib.progressBar(data)
---     while progress ~= nil do Wait(0) end
-
---     if not interruptProgress(data) then
---         SendNUIMessage({
---             action = 'progress',
---             data = {
---                 label = data.label,
---                 duration = data.duration
---             }
---         })
-
---         return startProgress(data)
---     end
--- end
-
 function lib.progressBar(data)
     while progress ~= nil do Wait(0) end
 
     if not interruptProgress(data) then
-            playerState.invBusy = true
-            exports['progressbar']:Progress({
-            name = "random_task",
-            duration = data.duration,
-            label = data.label,
-            useWhileDead = false,
-            canCancel = true,
-            controlDisables = {
-                disableMovement = false,
-                disableCarMovement = false,
-                disableMouse = false,
-                disableCombat = false,
-            },
-         }, function(cancelled)
-            if not cancelled then
-                -- finished
-                --SendNUIMessage({
-                    --action = 'progress',
-                    --data = {
-                        --label = data.label,
-                        --duration = data.duration
-                        --duration = -100
-                    --}
-                --})
-                progress = nil
-                playerState.invBusy = false
-            else
-                -- cancelled
-                print(data.. "cancelled or finished")
-                -- Reset progress whether it's finished or cancelled
-                progress = false
-                Citizen.Wait(1000)
-                progress = nil
-                playerState.invBusy = false
-            end
-         end)
+        SendNUIMessage({
+            action = 'progress',
+            data = {
+                label = data.label,
+                duration = data.duration
+            }
+        })
 
         return startProgress(data)
     end
@@ -260,8 +215,8 @@ RegisterNUICallback('progressComplete', function(data, cb)
     progress = nil
 end)
 
--- RegisterCommand('cancelprogress', function()
---     if progress?.canCancel then progress = false end
--- end , false)
+RegisterCommand('cancelprogress', function()
+    if progress?.canCancel then progress = false end
+end)
 
--- RegisterKeyMapping('cancelprogress', 'Cancel current progress bar', 'keyboard', 'x')
+RegisterKeyMapping('cancelprogress', 'Cancel current progress bar', 'keyboard', 'x')

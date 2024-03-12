@@ -462,36 +462,36 @@ local function startCreator(arg, useLast)
     end
 end
 
-RegisterCommand('zone', function(source, args, rawCommand)
-	if args[1] ~= 'poly' and args[1] ~= 'box' and args[1] ~= 'sphere' then
-        lib.notify({title = 'Invalid zone type', type = 'error'})
-        return
-    end
+-- RegisterCommand('zone', function(source, args, rawCommand)
+-- 	if args[1] ~= 'poly' and args[1] ~= 'box' and args[1] ~= 'sphere' then
+--         -- lib.notify({title = 'Invalid zone type', type = 'error'})
+--         return
+--     end
 
-    if creatorActive then
-        lib.notify({title = 'Already creating a zone', type = 'error'})
-        return
-    end
+--     if creatorActive then
+--         -- lib.notify({title = 'Already creating a zone', type = 'error'})
+--         return
+--     end
 
-    local useLast = args[2] and not useLastZoneFalsyInputs[args[2]]
+--     local useLast = args[2] and not useLastZoneFalsyInputs[args[2]]
 
-    if useLast then
-        if args[1] == 'poly' then
-            lib.notify({title = 'Cannot duplicate a poly zone', type = 'error'})
-            useLast = false
-        elseif not lastZone[args[1]] then
-            lib.notify({title = ('No previous %s zone to duplicate'):format(args[1]), type = 'error'})
-            useLast = false
-        end
-    end
+--     if useLast then
+--         if args[1] == 'poly' then
+--             -- lib.notify({title = 'Cannot duplicate a poly zone', type = 'error'})
+--             useLast = false
+--         elseif not lastZone[args[1]] then
+--             -- lib.notify({title = ('No previous %s zone to duplicate'):format(args[1]), type = 'error'})
+--             useLast = false
+--         end
+--     end
 
-    startCreator(args[1], useLast)
-end, true)
+--     startCreator(args[1], useLast)
+-- end, true)
 
-CreateThread(function()
-    Wait(1000)
-    TriggerEvent('chat:addSuggestion', '/zone', 'Starts creation of the specified zone', {
-        { name = 'zoneType', help = 'poly, box, sphere' },
-        { name = 'useLast', help = 'duplicates the last created zone of the specified type (box and sphere only, optional)' }
-    })
-end)
+-- CreateThread(function()
+--     Wait(1000)
+--     TriggerEvent('chat:addSuggestion', '/zone', 'Starts creation of the specified zone', {
+--         { name = 'zoneType', help = 'poly, box, sphere' },
+--         { name = 'useLast', help = 'duplicates the last created zone of the specified type (box and sphere only, optional)' }
+--     })
+-- end)
