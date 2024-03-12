@@ -5,6 +5,7 @@ local Translations = {
         wrong_command = 'Invalid.',
         missing_args = 'Not every argument has been entered (x, y, z)',
         missing_args2 = 'All arguments must be filled out!',
+        command_notexist = 'Invalid command \'/%{command}\'',
         no_access = 'No access to this command',
         company_too_poor = 'Your employer is broke',
         item_not_exist = 'Item does not exist',
