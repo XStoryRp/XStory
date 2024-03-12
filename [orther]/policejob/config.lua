@@ -112,7 +112,6 @@ Config.Locations = {
     ["stations"] = {
         [1] = {label = "Los Santos Police Department", coords = vector4(428.23, -984.28, 29.76, 3.5)},
         [2] = {label = "Blaine County Sheriffs Office", coords = vector4(-448.26, 6007.83, 44.01, 225.93)},
-        [3] = {label = "Los Santons Vinewood Police Department", coords = vector4(-448.26, 6007.83, 44.01, 225.93)},
     },
     ["customstatons"] = {
         -- [1] = {label = "San Andreas State Prison", coords = vector4(1845.903, 2585.873, 45.672, 272.249)},
