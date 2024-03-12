@@ -20,7 +20,6 @@ function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, perm
     local restricted = true -- Default to restricted for all commands
     if not permission then permission = 'user' end -- some commands don't pass permission level
     if permission == 'user' then restricted = false end -- allow all users to use command
-    
     RegisterCommand(name, function(source, args, rawCommand) -- Register command within fivem
         if argsrequired and #args < #arguments then
             return TriggerClientEvent('chat:addMessage', source, {
@@ -29,6 +28,7 @@ function QBCore.Commands.Add(name, help, arguments, argsrequired, callback, perm
                 args = {"System", Lang:t("error.missing_args2")}
             })
         end
+ 
         callback(source, args, rawCommand)
     end, restricted)
 
@@ -316,15 +316,15 @@ end, 'user')
 
 -- Chat 
 
-QBCore.Commands.Add("clear", "Clear Chat For You", {}, false, function(source)
-    local src = source
-    -- local Staff = QBCore.Functions.GetPlayer(src)
-    local Player = QBCore.Functions.GetPlayer(src)
-    TriggerClientEvent('chat:clear', source)
-    -- TriggerClientEvent('QBCore:Notify', source, "Your cleared your chat!", "primary")
-    TriggerEvent('qb-log:server:CreateLog', 'ps-adminmenu', 'ClearChat (Player)', 'white', ('**Player:** %s | **License:** ||(%s)||\n **ID:** %s \n**Info:** Cleared Chat (Personal Chat)'):format(GetPlayerName(source), Player.PlayerData.license,src))
+-- QBCore.Commands.Add("clear", "Clear Chat For You", {}, false, function(source)
+--     local src = source
+--     -- local Staff = QBCore.Functions.GetPlayer(src)
+--     local Player = QBCore.Functions.GetPlayer(src)
+--     TriggerClientEvent('chat:clear', source)
+--     -- TriggerClientEvent('QBCore:Notify', source, "Your cleared your chat!", "primary")
+--     TriggerEvent('qb-log:server:CreateLog', 'ps-adminmenu', 'ClearChat (Player)', 'white', ('**Player:** %s | **License:** ||(%s)||\n **ID:** %s \n**Info:** Cleared Chat (Personal Chat)'):format(GetPlayerName(source), Player.PlayerData.license,src))
 
-end)
+-- end)
 
 QBCore.Commands.Add("cleara", "Full Server Chat Clear", {}, false, function(source)
     local src = source
@@ -333,7 +333,7 @@ QBCore.Commands.Add("cleara", "Full Server Chat Clear", {}, false, function(sour
     TriggerClientEvent('chat:clear', -1)
     -- TriggerClientEvent('QBCore:Notify', -1, "A staff member cleaned the chat!", "primary")
     TriggerEvent('qb-log:server:CreateLog', 'ps-adminmenu', 'ClearChat (Staff)', 'white', ('**Staff:** %s | **License:** ||(%s)||\n**ID:** %s \n**Info:** Cleared Server Chat'):format(GetPlayerName(source), Staff.PlayerData.license,src))
-end, "mod")
+end, "manager")
 
 
 QBCore.Commands.Add('report', Lang:t('info.admin_report'), { { name = 'message', help = 'Message' } }, true, function(source, args)
@@ -342,4 +342,17 @@ QBCore.Commands.Add('report', Lang:t('info.admin_report'), { { name = 'message',
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent('qb-admin:client:SendReport', -1, GetPlayerName(src), src, msg)
     TriggerEvent('qb-log:server:CreateLog', 'report', 'Report', 'green', '**' .. GetPlayerName(source) .. '** (CitizenID: ' .. Player.PlayerData.citizenid .. ' | ID: ' .. source .. ') **Report:** ' .. msg, false)
+end, 'manager')
+
+
+AddEventHandler("chatMessage", function(source, _, message)
+    if message:sub(1, 1) == "/" and source > 0 then
+        CancelEvent()
+        local command = message:sub(1):gmatch("%w+")()
+        TriggerClientEvent('chat:addMessage', source, {
+            color = {255, 0, 0},
+            multiline = true,
+            args = {"System", Lang:t("error.command_notexist", {command = command})}
+        })
+    end
 end)
