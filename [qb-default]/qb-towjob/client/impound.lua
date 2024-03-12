@@ -1,5 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local bones = {'bonnet', 'boot'}
+local bones = {'bonnet', 'boot','door_pside_r','door_pside_f','door_dside_r','door_dside_f'}
 
 CreateThread(function()
     exports['qb-target']:AddTargetBone(bones, {
@@ -8,7 +8,7 @@ CreateThread(function()
                 icon = "fas fa-lock",
                 label = "Impound Request",
                 event = "dynyx-impound:client:OpenImpoundMenu",
-                distance = 1.3
+                distance = 1.4
             }
         }
     })
