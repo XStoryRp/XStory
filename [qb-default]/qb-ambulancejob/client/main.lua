@@ -903,7 +903,7 @@ Citizen.CreateThread(function()
     for _, station in pairs(Config.Locations["firestations"]) do
         local blip = AddBlipForCoord(station.coords.x, station.coords.y, station.coords.z)
         SetBlipSprite(blip, 648)
-        SetBlipAsShortRange(blip, false)
+        SetBlipAsShortRange(blip, true)
         SetBlipScale(blip, 0.6)
         SetBlipColour(blip, 6)
         BeginTextCommandSetBlipName("STRING")
