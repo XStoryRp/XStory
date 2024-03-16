@@ -1,3 +1,23 @@
+Config = {}
+
+-- DEFAULT Weather if no Zones in Area
+Config.DefaultWeather = 'EXTRASUNNY'
+Config.WeathersZones = {
+    [1] = {
+        coord = vector3(1317.0073242188,-559.03967285156,72.170654296875),
+        weathertype = 'THUNDER',
+        radius = 100.0,
+    },
+    [2] = { -- sandy shores
+        coord = vector3(1487.3907470703,3165.5197753906,117.73022460938),
+        weathertype = 'XMAS',
+        radius = 500.0,
+        timecycles = 'int_extlight_small_fog',
+        extratimecycle = 'heist_boat_norain'
+    },-- add more here
+}
+
+
 return {
 
     useScheduledWeather = true, -- Do you want txAdmin to schedule custom rain and thunder near restart?
@@ -9,7 +29,7 @@ return {
 
     decemberSnow = true, -- if turned on means that snow will only happen in december
 
-    useStaticWeather = true,
+    useStaticWeather = false,
     staticWeather = {
         ['BLIZZARD'] = 0.0, --0% chance
         ['CLEAR'] = 0.1, -- 10% chance

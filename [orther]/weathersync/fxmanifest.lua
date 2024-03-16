@@ -22,5 +22,5 @@ server_scripts {
     'compatability/**/server.lua',
 }
 
-provide 'qb-weathersync'
+provide 'weathersync'
 provide 'cd_easytime'

@@ -3,7 +3,7 @@ local Config = require 'config.weather'
 local globalState = GlobalState
 
 local function exportHandler(exportName, func)
-    AddEventHandler(('__cfx_export_qb-weathersync_%s'):format(exportName), function(setCB)
+    AddEventHandler(('__cfx_export_weathersync_%s'):format(exportName), function(setCB)
         setCB(func)
     end)
 end
@@ -20,7 +20,7 @@ end)
 exportHandler('setWeather', function(weather)
     globalState.weather = {
         weather = weather,
-        time = 9999999999
+        time = 50
     }
 end)
 
