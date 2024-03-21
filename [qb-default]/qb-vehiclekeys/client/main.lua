@@ -112,9 +112,11 @@ local function ToggleVehicleLocks(veh)
 			    SetVehicleDoorsLocked(veh, 1)
 				-- QBCore.Functions.Notify("Voertuig ontgrendeld!", "success")
 			    end
-                SetVehicleIndicatorLights(veh, 0 and 1, lights ~= 3 and true)
-                Wait(450)
-                SetVehicleIndicatorLights(veh,0 and 1, lights ~= 3 and false)
+                SetVehicleIndicatorLights(veh, 0, lights ~= 3 and true)
+                SetVehicleIndicatorLights(veh, 1,lights ~= 3 and  true)
+                Wait(2000)
+                SetVehicleIndicatorLights(veh, 0, lights ~= 3 and false)
+                SetVehicleIndicatorLights(veh, 1,lights ~= 3 and  false)
 			    ClearPedTasks(ped)
 			else
 			    QBCore.Functions.Notify(Lang:t("notify.no_key_item"), 'error')
@@ -572,3 +574,11 @@ CreateThread(function()
 end)
 
 exports('HasKeys', HasKeys)
+
+
+
+lib.onCache('ped', function(inBike)
+    if inBike then
+        SetPedConfigFlag(value, 35, false)
+    end
+end)
