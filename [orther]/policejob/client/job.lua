@@ -123,21 +123,17 @@ local function TakeOutImpound(vehicle)
     if coords then
         QBCore.Functions.TriggerCallback('QBCore:Server:SpawnVehicle', function(netId)
             local veh = NetToVeh(netId)
-            QBCore.Functions.TriggerCallback('qb-garage:server:GetVehicleProperties', function(properties)
-                QBCore.Functions.SetVehicleProperties(veh, properties)
-                SetVehicleNumberPlateText(veh, vehicle.plate)
-                SetVehicleDirtLevel(veh, 0.0)
-                SetEntityHeading(veh, coords.w)
-                exports['fuel']:SetFuel(veh, vehicle.fuel)
-                doCarDamage(veh, vehicle)
-                TriggerServerEvent('police:server:TakeOutImpound', vehicle.plate, currentGarage)
-                closeMenuFull()
-                -- exports['tsp_vehiclekeys']:GiveKeyItem(vehicle.plate, veh)
-                TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
-                TriggerEvent('mh-vehiclekeyitem:client:CreateTempKey', QBCore.Functions.GetPlate(veh))
-                
-                SetVehicleEngineOn(veh, false, false)
-            end, vehicle.plate)
+            QBCore.Functions.SetVehicleProperties(veh, json.decode(vehicle.mods))
+            SetVehicleNumberPlateText(veh, vehicle.plate)
+            SetVehicleDirtLevel(veh, 0.0)
+            SetEntityHeading(veh, coords.w)
+            exports['fuel']:SetFuel(veh, vehicle.fuel)
+            doCarDamage(veh, vehicle)
+            TriggerServerEvent('police:server:TakeOutImpound', vehicle.plate, currentGarage)
+            closeMenuFull()
+            TriggerEvent("vehiclekeys:client:SetOwner", QBCore.Functions.GetPlate(veh))
+            TriggerEvent('mh-vehiclekeyitem:client:CreateTempKey', QBCore.Functions.GetPlate(veh))
+            SetVehicleEngineOn(veh, true, true, true)
         end, vehicle.vehicle, coords, true)
     end
 end
@@ -784,7 +780,6 @@ RegisterNetEvent('police:client:ChangeExtra', function(data)
 end)
 
 --##### Threads #####--
-
 local dutylisten = false
 local function dutylistener()
     dutylisten = true
@@ -1536,19 +1531,19 @@ CreateThread(function()
 end)
 
 
-RegisterCommand('liverymenu', function()
-    if not PlayerJob.type == "leo" then QBCore.Functions.Notify("You can't use this menu..", "error") return end
-    local vehicle = nil
-	if IsPedInAnyVehicle(PlayerPedId(), false) then	
-        vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
-        syncVehicle(vehicle)
-    else
-        QBCore.Functions.Notify("You need to be in a car!", "error")
-        return
-    end
-    LiveryMenu = {}
-    LiveryMenu[#LiveryMenu+1] = {header = "Livery Menu", txt = "", isMenuHeader = true }
-    LiveryMenu[#LiveryMenu+1] = {header = "Change Liveries", txt = "Change your vehicle liveries", params= {event = 'policejob:client:VehicleLiveryMenu', args = {vehicle = vehicle}}}
-    LiveryMenu[#LiveryMenu+1] = {header = "Change Extras", txt = "Change your vehicle extras", params= {event = 'policejob:client:VehicleExtrasMenu', args = {vehicle = vehicle}}}
-    exports['qb-menu']:openMenu(LiveryMenu)
-end)
+-- RegisterCommand('liverymenu', function()
+--     if not PlayerJob.type == "leo" then QBCore.Functions.Notify("You can't use this menu..", "error") return end
+--     local vehicle = nil
+-- 	if IsPedInAnyVehicle(PlayerPedId(), false) then	
+--         vehicle = GetVehiclePedIsIn(PlayerPedId(), false)
+--         syncVehicle(vehicle)
+--     else
+--         QBCore.Functions.Notify("You need to be in a car!", "error")
+--         return
+--     end
+--     LiveryMenu = {}
+--     LiveryMenu[#LiveryMenu+1] = {header = "Livery Menu", txt = "", isMenuHeader = true }
+--     LiveryMenu[#LiveryMenu+1] = {header = "Change Liveries", txt = "Change your vehicle liveries", params= {event = 'policejob:client:VehicleLiveryMenu', args = {vehicle = vehicle}}}
+--     LiveryMenu[#LiveryMenu+1] = {header = "Change Extras", txt = "Change your vehicle extras", params= {event = 'policejob:client:VehicleExtrasMenu', args = {vehicle = vehicle}}}
+--     exports['qb-menu']:openMenu(LiveryMenu)
+-- end)
