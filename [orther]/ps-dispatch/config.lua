@@ -12,16 +12,15 @@ Config.RespondsKey = "E"
 -- Enable if you only want to send alerts to onDuty officers
 Config.OnDutyOnly = true
 
-Config.DefaultAlertsDelay = 3 -- Delay between each default alert, prevent spamming
+Config.DefaultAlertsDelay = 5 -- Delay between each default alert, prevent spamming
 Config.DefaultAlerts = {
-    Speeding = false,
+    Speeding = true,
     Shooting = true,
     Autotheft = true,
     Melee = true,
     PlayerDowned = true,
     Explosion = true
 }
-
 
 Config.PhoneModel = 'prop_npc_phone_02'
 
