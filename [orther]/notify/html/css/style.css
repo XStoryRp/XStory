@@ -1,4 +1,6 @@
-body {
+/* GO TO 22 LINE AND STOP TO WORKING!!! */
+
+/* body {
     background-color: transparent !important;
 }
 
@@ -17,7 +19,7 @@ body {
 
 .notification {
     margin:6px;
-    /* text-align:center; */
+    -- stop this line text-align:center;
     font: caption;
     padding:8px;
     border: 2px solid rgba(0, 0, 0, 0.1);
@@ -41,4 +43,48 @@ body {
 .error {
     background: rgba(181, 82, 85, 0.85);
     color: #fff;
+} */
+
+
+body {
+    background-color: transparent !important;
 }
+
+.template, .notification {
+    display: none;
+}
+
+.notif-container {
+    width: 20%;
+    position: absolute;
+    right: 15%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+}
+
+.notification {
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    margin: 5px;
+    font: caption;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.success {
+    background: rgb(114, 204, 114);
+    background: linear-gradient(90deg, rgba(0, 223, 205, 0.61) 0%, rgba(0, 223, 205, 0.16) 125.86%);
+}
+
+.inform {
+    background-color: rgb(47, 92, 115);
+    background: linear-gradient(90deg, rgba(0, 223, 205, 0.61) 0%, rgba(0, 223, 205, 0.16) 125.86%);
+}
+
+.error {
+    background: rgb(224, 50, 50);
+    background: linear-gradient(90deg, rgba(223, 0, 0, 0.61) 0%, rgba(223, 0, 0, 0.16) 125.86%);
+}
+
